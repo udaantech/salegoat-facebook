@@ -71,9 +71,10 @@ a,a:focus,a:hover{
   padding: 11px 0;
 }
 .main_page {
-  background: url("background.jpg") no-repeat fixed center center / 100% auto rgba(0, 0, 0, 0);
+  background: url("img/background.jpg") no-repeat center center / 100% auto rgba(0, 0, 0, 0);
   float: left;
   width: 100%;
+  margin-bottom:15px;
 }
 .main_page h2{
 	text-align:center;
@@ -87,13 +88,15 @@ a,a:focus,a:hover{
 }
 .feature {
   float: left;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 100%;
-}
+} 
+.feature h3{margin-top:0;margin-bottom:0;}
 .heading_part {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
   color: rgb(255, 255, 255);
-  margin-top: 100px;
+   margin-bottom: 75px;
+    margin-top: 76px;
   padding: 40px 0;
   text-align: center;
 }
@@ -132,6 +135,10 @@ a,a:focus,a:hover{
   text-align:center;
 
 }
+
+.login-with-fb h3{font-size:22px;}
+
+.bdrlft{border-left:2px solid #CCCCCC;}
 .inner_page {
   background: none repeat scroll 0 0 rgb(255, 255, 255);
   float: left;
