@@ -71,7 +71,7 @@ a,a:focus,a:hover{
   padding: 11px 0;
 }
 .main_page {
-  background: url("img/background.jpg") no-repeat center center / 100% auto rgba(0, 0, 0, 0);
+  background: url("img/bg.jpg") no-repeat center center / 100% auto rgba(0, 0, 0, 0);
   float: left;
   width: 100%;
   margin-bottom:15px;
