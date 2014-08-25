@@ -5,6 +5,12 @@ FacebookAuthExample::Application.routes.draw do
 
     resources :sessions, only: [:create, :destroy]
     resource :home, only: [:show]
+    resources :home do
+		collection do
+		  get "dashboard"
+		  get "facebookGroup"
+	   end
+	  end
 
     root to: "home#show"
 end

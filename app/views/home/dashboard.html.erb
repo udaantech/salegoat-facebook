@@ -1,0 +1,153 @@
+<script>
+$(function(){
+	$("a.check_o").on("click",function(){
+	start=$(this).attr("data-start");
+	end=$(this).attr("data-end");
+	grp=$(".ugroups").css("display");
+	likes=$(".ulikes").css("display");
+	if(grp!='none'){
+		$("input[name^='usergroups']").slice(start,end).prop("checked", true);
+	} else if(likes!='none') {
+		$("input[name^='userlikes']").slice(start,end).prop("checked", true);
+	}
+	});
+
+
+	$("a.check_c").on("click",function(){
+		var start=prompt("Please enter start value","0");
+		var end=prompt("Please enter end value","100");
+		grp=$(".ugroups").css("display");
+		likes=$(".ulikes").css("display");
+		if(grp!='none'){
+			check_section=$("input[name^='usergroups']");
+		} else if(likes!='none') {
+			check_section=$("input[name^='userlikes']");
+		}
+		check_section.slice(start,end).prop("checked", true);
+		l=check_section.slice(start,end).length;
+		alert(l+" items selected ("+start+" - "+end+")");
+	});
+	
+	
+	
+	$("#selectall").click(function(){
+	$("input[type='checkbox']").prop("checked", true);
+	});
+	
+	$("#deselectall").click(function(){
+	$("input[type='checkbox']").prop("checked", false);
+	});
+	
+	
+	
+	$("#addlink").click(function(){
+		$("#linkinfo").toggle();
+		$("#picupload").hide();
+		});
+		$("#addpic").click(function(){
+			$("#picupload").toggle();
+			$("#linkinfo").hide();
+		})
+});
+	
+	
+</script>
+
+<div class="container main_page"> 
+		<div class="row">
+			<div class="col-sm-12 col-xs-12">
+				<h2>
+					Facebook wall Post<br/>
+					<small>Post to Multiple Walls(Groups)</small>
+				</h2>
+				<hr class="border_devide"/>		
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-5 col-xs-12">
+				<form class="form-horizontal" role="form">
+				<div class="form-group">				
+					<label for="inputEmail3" class="col-sm-4 control-label">Product</label>					
+					<div class="col-sm-8">
+						<!-- <input type="text" class="form-control" id="exampleInputPassword1"> -->
+						 <textarea class="form-control" rows="3"></textarea>
+					</div>
+				  </div>
+				  <div class="form-group">
+					<label for="inputEmail3" class="col-sm-4 control-label">Description<br/><small>Write something to post! </small></label>
+					<div class="col-sm-8">
+					 <textarea class="form-control" rows="3"></textarea>
+					</div>
+				  </div>
+				<div class="form-group">
+					<div class="col-sm-offset-4 col-sm-8">
+						<a href="#" id="addlink"> Add link |</a>
+						<a href="#" id="addpic"> Add image</a>
+					</div>
+				  </div>
+				  
+				  <div id="linkinfo" style="display:none;"><br/>
+						<small style="margin-bottom:10px;color: #F00;clear: both;display: block;font-size: 10px;font-weight: bold;text-align:center;">All of the link information is extracted from its og:* meta tags</small>
+						<label>Link</label>
+						<input type="text" name="link" value="http://" /><br/><br/>
+						<label>Link Title <small style="display:block;font-size:10px;">(optional if your page has og:title meta tag)</small></label>
+						 <input type="text" name="linkname" /><br/>
+					</div>
+					<div id="picupload" style="display:none;overflow:hidden;text-align:center;"><br/>
+						<input type="hidden" name="MAX_FILE_SIZE" value="2097153" />
+						<input name="file" type="file" />
+					</div>
+					<br/>
+				  
+				  
+				  
+				  <div class="form-group">
+					<div class="col-sm-offset-4 col-sm-8">
+					  <button type="submit" class="btn btn-success">Post</button>
+					</div>
+				  </div>
+				</form>
+							
+			</div>
+			<div class="col-sm-7 col-xs-12">
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<h4>Select Groups to Post to:</h4>
+							<div class="pull-right right_section">
+								<a href="#" id="selectall">select all -</a>
+								<a href="#" id="deselectall">Deselect all</a>
+								<br/>
+								<a href="#" data-start="0" data-end="100" class="check_o">Select 0-100 - </a>
+								<a href="#" data-start="100" data-end="200" class="check_o">Select 101-200 - </a>
+								<a href="#" data-start="200" data-end="300" class="check_o">Select 201-300 - </a>
+								<a href="#" data-start="300" data-end="400" class="check_o">Select 301-400 - </a>
+								<a href="#" class="check_c">Custom Select</a>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<div class="mang_width">
+								<div id="ugroups">
+									<% if @likes %>
+										<% for like in @likes %>
+									
+									<div class="gdiv">
+										<input type="checkbox" id="<%=h like["id"]%>" name="usergroups[<%=h like["id"]%>]" value="<%=h like["id"]%>" /> 
+										<label for="<%=h like["id"]%>">
+											<span class="gname"><%=h like["name"]%></span>
+										</label>
+									</div>
+									
+									<% end %>
+									<% end %>
+											
+								</div>
+							</div>
+						</div>
+					</div>				
+				</form>
+			</div>
+		</div>
+    </div> <!-- /container -->

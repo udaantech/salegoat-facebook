@@ -7,6 +7,8 @@ gem 'rails', '4.0.0'
 gem 'mysql2'
 
 gem 'omniauth-facebook', '~> 1.4.1'
+gem "koala", "~> 1.10.0rc"
+gem 'thin'
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
