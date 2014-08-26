@@ -1,14 +1,4 @@
-@font-face {
-    font-family: 'open_sans';
-    src: url('fonts/opensans-regular-webfont.eot');
-    src: url('fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/opensans-regular-webfont.woff') format('woff'),
-         url('fonts/opensans-regular-webfont.ttf') format('truetype'),
-         url('fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
 
-}
 
 
 body{
@@ -71,21 +61,6 @@ a,a:focus,a:hover{
 .navbar-nav > li {
   float: left;
   padding: 11px 0;
-}
-.main_page {
-  float: left;
-  width: 100%;
-  margin-bottom:15px;
-}
-.main_page h2{
-  text-align:center;
-  font-size: 50px;
-}
-.main_page h2 small{
-  text-align:center;
-  font-size:20px;
-  color: #fff;
-  margin-top:20px; 
 }
 
 .feature {
