@@ -6,13 +6,7 @@ class HomeController < ApplicationController
   end
   
   def dashboard
-  
-	  if session["user_id"]
-		graph = Koala::Facebook::GraphAPI.new(session["user_token"])
-		@likes = graph.get_connections("me", "groups")
-	   else
-		redirect_to root_path
-	   end
+  render json: "hello"
   end
   
    def create
