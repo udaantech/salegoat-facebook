@@ -4,13 +4,20 @@ FacebookAuthExample::Application.routes.draw do
     get 'signout', to: 'sessions#destroy', as: 'signout'
 
     resources :sessions, only: [:create, :destroy]
-    resource :home, only: [:show]
+    resource :home, only: [:default]
     resources :home do
 		collection do
 		  get "dashboard"
 		  get "facebookGroup"
+		  get "create"
+		  get "putCheckBox"
 	   end
 	  end
+	  
+	   resources :orders do
+		get :execute
+		get :cancel
+	  end
 
-    root to: "home#show"
+    root to: "home#default"
 end

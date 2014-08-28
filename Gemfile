@@ -9,6 +9,11 @@ gem 'mysql2'
 gem 'omniauth-facebook', '~> 1.4.1'
 gem "koala", "~> 1.10.0rc"
 gem 'thin'
+gem 'devise'
+
+# PayPal
+gem 'paypal-sdk-core', '~> 0.3.0',	:git => 'https://github.com/paypal/sdk-core-ruby.git'
+gem 'paypal-sdk-rest', '~> 0.7.0',	:git => 'https://github.com/paypal/rest-api-sdk-ruby.git'
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'

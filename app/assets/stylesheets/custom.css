@@ -137,6 +137,26 @@ a,a:focus,a:hover{
   padding: 50px 0;
   width: 100%;
 }
+
+.inner_heading_part {
+  background: none repeat scroll 0 0 rgba(44, 93, 133, 0.9);
+  color: rgb(255, 255, 255);
+  margin-top: 0px;
+  padding: 10px 0;
+  text-align: center;
+  margin-bottom:25px;
+}
+.inner_heading_part h2{
+   font-size: 45px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+form.upload-post i{color:#428bca;}
+
+
+
 .cont_center{
 	text-align:center;
 }
@@ -174,7 +194,19 @@ footer{
   overflow-y: scroll;
   padding: 10px;
   width: 100%;
+  margin-bottom:20px;
 }
+.upload-picture input[type="file"] {
+    border: medium none;
+    box-shadow: none ;
+    padding: 0;
+}
+.upload-picture input[type="file"]:focus{
+   box-shadow:none;
+   outline:none;  
+
+}
+
 .gdiv {
     border-bottom: 1px solid #999999;
     cursor: pointer;
