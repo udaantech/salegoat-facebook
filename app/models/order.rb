@@ -16,7 +16,7 @@ class Order < ActiveRecord::Base
 
 
   def payment
-    @payment ||= payment_id && Payment.find('PAY-03M559218R0099723KP6ZXOY')
+    @payment ||= payment_id && Payment.find(payment_id)
   end
 
   def credit_card
