@@ -11,10 +11,10 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: paypal
+  database: facebookeasylister
   pool: 5
   username: root
-  password: admin@123
+  password: 
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -23,7 +23,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: salegoat_test
+  database: facebookeasylister
   pool: 5
   username: root
   password:
@@ -32,7 +32,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: salegoat_production
+  database: facebookeasylister
   pool: 25
   username: root
   password:
