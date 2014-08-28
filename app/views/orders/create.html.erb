@@ -6,15 +6,16 @@
       <form accept-charset="UTF-8" action="/orders"  method="post" class="form-horizontal">
       <div style="margin:0;padding:0;display:inline">
       <input name="utf8" type="hidden" value="&#x2713;" />
-      <input name="authenticity_token" type="hidden" value="mTr5lv7wDUOAkjvrROLCFEZonbb5/0tWwCP3YdDMslY=" /></div>
+      <input name="authenticity_token" type="hidden" value="mTr5lv7wDUOAkjvrROLCFEZonbb5/0tWwCP3YdDMslY=" />
+      </div>
         
         <div class='form-group'>
           <label class="string optional control-label col-md-4" for="order_amount">Amount</label>
           <div class='controls col-md-8'>
             <label class='checkbox'>
-              20
+              $0.99
             </label>
-            <input id="order_amount" name="order[amount]" type="hidden" value="20" />
+            <input id="order_amount" name="order[amount]" type="hidden" value="0.99" />
           </div>
         </div>
         
@@ -22,10 +23,10 @@
           <label class="string optional control-label  col-md-4" for="order_description">Description</label>
           <div class='controls col-md-8'>
             <label class='checkbox'>
-              Post
+              <%=session["productName"] %>
             
             </label>
-            <input id="order_description" name="order[description]" type="hidden" value="Post" />
+            <input id="order_description" name="order[description]" type="hidden" value="<%=session["productName"] %>" />
           </div>
         </div>
         

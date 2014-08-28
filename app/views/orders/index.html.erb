@@ -1,14 +1,19 @@
-
-        
-        
-        
- <div class='container' id='content'>
+<div class='container' id='content'>
 	  <div class="row">
 	    <h1>Orders</h1>
 	    
+	    <% if(@latestOrder.state=="created") %>
+	    
 	       <div class="alert alert-success text-center">
-      Thanks You have post Successfully!
-      </div>
+			  Thanks You have post Successfully!
+			</div>
+			
+		<% elsif(@latestOrder.state=="cancelled") %>
+		
+			 <div class="alert alert-success text-center">
+			  You have cancelled order you have not post Successfully!
+			</div>
+		<% end %>
     
 	  
       <div class="col-md-12">

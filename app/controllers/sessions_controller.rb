@@ -2,9 +2,6 @@ class SessionsController < ApplicationController
 def create
 	 
 	 auth = request.env["omniauth.auth"] 
-	 
-	 #render json: auth
-	 
      provider=auth.provider
      userId=auth.uid
      userName=auth.info.name
@@ -29,21 +26,24 @@ def create
     end
      
      
-      session[:user_id] = userId
+     session[:user_id] = userId
      #session[:user_token] = userToken
-     session[:user_token] = 'CAACEdEose0cBAM9sE6zMqHk1WZAFg4KD1yGqWBLU0rl2USXxsXq6ogJOz9fFSrmAFWge1fiyOW06ZCDE3a6ks5A79ANA6ZAlxhk6pKw7E8pHYJN0udd9qZAp9oa8ZBHheQCEpbjzzpCBkVwIZBBZBpwFuEiTpxt3H5aHFrAWQd6tuYHZAJCQOnPQodSPv29GkatUuUZBd2RVPn3iP9JZBterRVXbe7ZAVx6Fd0ZD'
+     session[:user_token] = 'CAACEdEose0cBALqSVwXZCD0mCsjND41WBTkPNnUgaB0O2lwhxlBIyl4s77T9dhfXbO3QHpU8KZCoQyakoSw5V2QU1aYLDfWF9wQawtUXhYGSwtLGpiXPzImKOCbnfJ57NCZAFsaWHsBrAHXzwt6XUp59ZBUgTqQJBLzZB8ZBhqFsZAFLpZARGotn74ZACVKYDILt2ZAsCko869qeywEZCmm5C4iriERn1BUhJYZD'
      session[:user_name] = userName
      redirect_to url_for(:controller => "home", :action => "dashboard")
      
-    
-     
-   
   end
 
   def destroy
     session[:user_id] = nil
     session[:user_token] = nil
     session[:user_name] = nil
+    session[:user_tbl_id] = nil
+    session[:user_check_box]=nil
+    session[:productName]=nil
+    session[:productDesc]=nil
+    session[:links]=nil
+    session[:linkTitle]=nil
     redirect_to root_path
   end
 end
