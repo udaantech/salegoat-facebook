@@ -2,7 +2,7 @@
 	  <div class="row">
 	    <h1>Orders</h1>
 	    
-	    <% if(@latestOrder.state=="created") %>
+	    <% if(@latestOrder.state=="created" || @latestOrder.state=="approved") %>
 	    
 	       <div class="alert alert-success text-center">
 			  Thanks You have post Successfully!

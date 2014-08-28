@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 		@orders = current_user.orders.all( :limit => 100, :order => "id DESC" )
 		
 		@latestOrder = current_user.orders.last
-			if(@latestOrder.state=="created")
+			if(@latestOrder.state=="created" || @latestOrder.state=="approved")
 				checkBoxVal = session["user_check_box"]
 				checkBoxVal.each do |i|
 					graph = Koala::Facebook::GraphAPI.new(session["user_token"])
