@@ -28,7 +28,7 @@ def create
      
      session[:user_id] = userId
      #session[:user_token] = userToken
-     session[:user_token] = 'CAACEdEose0cBALqSVwXZCD0mCsjND41WBTkPNnUgaB0O2lwhxlBIyl4s77T9dhfXbO3QHpU8KZCoQyakoSw5V2QU1aYLDfWF9wQawtUXhYGSwtLGpiXPzImKOCbnfJ57NCZAFsaWHsBrAHXzwt6XUp59ZBUgTqQJBLzZB8ZBhqFsZAFLpZARGotn74ZACVKYDILt2ZAsCko869qeywEZCmm5C4iriERn1BUhJYZD'
+     session[:user_token] = 'CAACEdEose0cBACUwqYXHH7OHUlDyNwmrhnGAfZAF0Azj5aFGMpNKHuQZCsytRXTswJldmijTCZC8BsOu6a45GiJ8jNBmF9Rlx1N2roqerCGIm2bH4rCaCLKyvqZCuzQhXhZCyWFumMW3oCqqo9kZAqZB1KxyZCOHC6ArheXH0WN8OMnYH5EB8iESuJZBQQQX0ZAXlTbhe6He5ZBkB4WbtG74PpUiUNGObm0ATwZD'
      session[:user_name] = userName
      redirect_to url_for(:controller => "home", :action => "dashboard")
      
