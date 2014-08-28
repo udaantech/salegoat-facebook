@@ -11,6 +11,7 @@ FacebookAuthExample::Application.routes.draw do
 		  get "facebookGroup"
 		  get "create"
 		  get "putCheckBox"
+		  get "privacy"
 	   end
 	  end
 	  

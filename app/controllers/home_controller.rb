@@ -58,4 +58,10 @@ class HomeController < ApplicationController
 	
 	render json: "sucess"
   end
+  
+  def privacy
+  
+  end
+  
+  
 end
