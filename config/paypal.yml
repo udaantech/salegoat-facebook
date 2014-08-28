@@ -5,7 +5,7 @@ test: &default
   client_secret: EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM
 
   # Mode can be 'live' or 'sandbox'
-  mode: sandbox
+  mode: live
 
   # Credentials for Classic APIs
   username: jb-us-seller_api1.paypal.com
@@ -27,7 +27,7 @@ development:
   client_secret: EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM
 
   # Mode can be 'live' or 'sandbox'
-  mode: sandbox
+  mode: live
 
   # Credentials for Classic APIs
   username: jb-us-seller_api1.paypal.com
@@ -50,7 +50,7 @@ production:
   client_secret: EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM
 
   # Mode can be 'live' or 'sandbox'
-  mode: sandbox
+  mode: live
 
   # Credentials for Classic APIs
   username: jb-us-seller_api1.paypal.com
