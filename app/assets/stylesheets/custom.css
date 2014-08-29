@@ -281,6 +281,7 @@ background: -ms-linear-gradient(top,  #c6302d 0%,#9b2323 100%); /* IE10+ */
 background: linear-gradient(to bottom,  #c6302d 0%,#9b2323 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c6302d', endColorstr='#9b2323',GradientType=0 ); /* IE6-9 */
 color:#fff;
+margin-top: -5px;
 }
 .custom_btn:hover,.custom_btn:focus{
   color: #fff;

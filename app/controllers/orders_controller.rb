@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
 				checkBoxVal.each do |i|
 					
 					image_path="#{request.protocol}#{request.host_with_port}/#{session[:user_tbl_id]}_facebook_post.png"
+					#image_path="http://facebookeasylister.com/5_facebook_post.png"
 					message = "#{session[:links]}
 				   			   #{session[:productName]}
 				 			   #{session[:productDesc]}"

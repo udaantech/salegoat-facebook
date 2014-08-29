@@ -19,34 +19,29 @@
       <div class="col-md-12">
       
    
-      <table class='table'>
-        <thead>
-          <tr>
-            <th>Payment ID</th>
-            <th>Amount($)</th>
+      <table class='table table-bordered table-hover'>
+        
+        <tr>
+           <th>Payment ID</th>
+           <td><%= @latestOrder.payment_id  %></td>
+       </tr>
+        <tr>
+           <th>Amount($)</th>
+           <td><%= @latestOrder.amount  %></td>
+       </tr>
+        <tr>
             <th>Payment Status</th>
-            <th>Time</th>
-            <th>Description</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-        
-        
-        
-          <tr>
-            <td><%= @latestOrder.payment_id  %></td>
-            <td><%= @latestOrder.amount  %></td>
-            <td><%= @latestOrder.state  %></td>
-            <td><%= @latestOrder.created_at  %></td>
-            <td><%= @latestOrder.description  %></td>
-           
-          </tr>
-          
-          
-          
-          
-        </tbody>
+           <td><%= @latestOrder.state  %></td>
+       </tr>
+        <tr>
+           <th>Time</th>
+           <td><%= @latestOrder.created_at  %></td>
+       </tr>
+        <tr>
+           <th>Description</th>
+           <td><%= @latestOrder.description  %></td>
+       </tr>
+         
       </table>
     </div>    
     
