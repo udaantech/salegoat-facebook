@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 				end
 			end
 	else
-		redirect_to root_path
+		#redirect_to root_path
 	end
 	
   end

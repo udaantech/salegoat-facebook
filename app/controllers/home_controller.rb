@@ -27,8 +27,6 @@ class HomeController < ApplicationController
 		message = 'Ruby is the most beautiful gem.'
 		graph.put_picture( image_path, {message: message}, i)
 	end
-   
-	render text: checkBoxVal
 	
    end
    
@@ -43,18 +41,18 @@ class HomeController < ApplicationController
    
  	def putImage
  		img = "#{params[:current_user]}_facebook_post.png"
- 		File.open("vendor/fb_post/#{img}", 'wb') do|f|
+ 		File.open("public/#{img}", 'wb') do|f|
 		f.write(Base64.decode64(params[:data]))
 		end
-		session[:links] = img
-		render text: img
+		session[:links] =  "#{request.protocol}#{request.host_with_port}/#{img}"
+		render text: session[:links]
  	end  
   
   def facebookGroup
 	checkBoxVal = session["user_check_box"]
 	graph = Koala::Facebook::GraphAPI.new(session["user_token"])
 	checkBoxVal.each do |i|
-		image_path="http://britishfamily.co.uk/wp-content/uploads/2013/02/toys.jpg"
+		image_path="http://localhost/2_facebook_post.png"
 		message = 'Hello it is just testing'
 		graph.put_picture( image_path, {message: message}, i)
 	
