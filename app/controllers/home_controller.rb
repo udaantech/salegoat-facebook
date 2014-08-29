@@ -6,7 +6,9 @@ class HomeController < ApplicationController
   end
   
   def dashboard
-  
+  		
+  	@order = Order.new
+
 	  if session["user_id"]
 		graph = Koala::Facebook::GraphAPI.new(session["user_token"])
 		@likes = graph.get_connections("me", "groups")
@@ -39,7 +41,14 @@ class HomeController < ApplicationController
 	 render text: session["user_check_box"]
    end
    
-   
+ 	def putImage
+ 		img = "#{params[:current_user]}_facebook_post.png"
+ 		File.open("vendor/fb_post/#{img}", 'wb') do|f|
+		f.write(Base64.decode64(params[:data]))
+		end
+		session[:links] = img
+		render text: img
+ 	end  
   
   def facebookGroup
 	checkBoxVal = session["user_check_box"]
