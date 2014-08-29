@@ -11,7 +11,7 @@
 		<% elsif(@latestOrder.state=="cancelled") %>
 		
 			 <div class="alert alert-success text-center">
-			  You have cancelled order you have not post Successfully!
+			  Your order have cancelled!
 			</div>
 		<% end %>
     
@@ -32,19 +32,19 @@
         </thead>
         <tbody>
         
-        <% @orders.each do |order|  %>
+        
         
           <tr>
-            <td><%=order.payment_id  %></td>
-            <td><%=order.amount  %></td>
-            <td><%=order.state  %></td>
-            <td><%=order.created_at  %></td>
-            <td><%=order.description  %></td>
+            <td><%= @latestOrder.payment_id  %></td>
+            <td><%= @latestOrder.amount  %></td>
+            <td><%= @latestOrder.state  %></td>
+            <td><%= @latestOrder.created_at  %></td>
+            <td><%= @latestOrder.description  %></td>
            
           </tr>
           
           
-          <% end %>
+          
           
         </tbody>
       </table>

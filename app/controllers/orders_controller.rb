@@ -6,15 +6,15 @@ class OrdersController < ApplicationController
 		@orders = current_user.orders.all( :limit => 100, :order => "id DESC" )
 		
 		@latestOrder = current_user.orders.last
-			#if(@latestOrder.state=="approved")
-				#checkBoxVal = session["user_check_box"]
-				#@graph = Koala::Facebook::GraphAPI.new(session["user_token"])
-				#checkBoxVal.each do |i|
-					#image_path=session["links"]
-					#message = session["productName"]
-					#@graph.put_picture( image_path, {message: message}, i)
-				#end
-			#end
+			if(@latestOrder.state=="approved")
+				checkBoxVal = session["user_check_box"]
+				graph = Koala::Facebook::GraphAPI.new(session["user_token"])
+				checkBoxVal.each do |i|
+					image_path=session["links"]
+					message = session["productName"]
+					graph.put_picture( image_path, {message: message}, i)
+				end
+			end
 	else
 		redirect_to root_path
 	end
