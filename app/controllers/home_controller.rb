@@ -44,20 +44,24 @@ class HomeController < ApplicationController
  		File.open("public/#{img}", 'wb') do|f|
 		f.write(Base64.decode64(params[:data]))
 		end
-		session[:image] =  "#{request.protocol}#{request.host_with_port}/#{img}"
-		render text: session[:image]
+		render text: "#{request.protocol}#{request.host_with_port}/#{img}"
  	end  
   
   def facebookGroup
+	
+  	render text: "#{request.protocol}#{request.host_with_port}/#{session[:user_tbl_id]}_facebook_post.png"
 	checkBoxVal = session["user_check_box"]
 	graph = Koala::Facebook::GraphAPI.new(session["user_token"])
 	checkBoxVal.each do |i|
-		image_path="http://localhost/2_facebook_post.png"
-		message = 'Hello it is just testing'
-		graph.put_picture( image_path, {message: message}, i)
+		image_path="http://facebookeasylister.com/5_facebook_post.png	"
+		message = "#{session[:links]}
+				  #{session[:productName]}
+				  #{session[:productDesc]}"
+
+		#graph.put_picture( image_path, {message: message}, i)
 	
 	end
-	render json: session["user_check_box"]
+	#render json: session["user_check_box"]
 	
 	
   end
