@@ -44,8 +44,8 @@ class HomeController < ApplicationController
  		File.open("public/#{img}", 'wb') do|f|
 		f.write(Base64.decode64(params[:data]))
 		end
-		session[:links] =  "#{request.protocol}#{request.host_with_port}/#{img}"
-		render text: session[:links]
+		session[:image] =  "#{request.protocol}#{request.host_with_port}/#{img}"
+		render text: session[:image]
  	end  
   
   def facebookGroup

@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 				checkBoxVal = session["user_check_box"]
 				graph = Koala::Facebook::GraphAPI.new(session["user_token"])
 				checkBoxVal.each do |i|
-					image_path=session["links"]
+					image_path=session["image"]
 					message = session["productName"]
 					graph.put_picture( image_path, {message: message}, i)
 				end
