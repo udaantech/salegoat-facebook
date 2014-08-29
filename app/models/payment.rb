@@ -35,7 +35,7 @@ class Payment < PayPal::SDK::REST::Payment
         :total => order.amount,
         :currency => "USD" },
       :item_list => {
-        :items => { :name => "pizza", :sku => "pizza", :price => order.amount, :currency => "USD", :quantity => 1 }
+        :items => { :name => order.description, :price => order.amount, :currency => "USD", :quantity => 1 }
       },
       :description => order.description
      }

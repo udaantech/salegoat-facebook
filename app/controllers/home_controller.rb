@@ -58,10 +58,10 @@ class HomeController < ApplicationController
 				  #{session[:productName]}
 				  #{session[:productDesc]}"
 
-		#graph.put_picture( image_path, {message: message}, i)
+		graph.put_picture( image_path, {message: message}, i)
 	
 	end
-	#render json: session["user_check_box"]
+	render json: session["user_check_box"]
 	
 	
   end
