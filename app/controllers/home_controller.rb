@@ -42,7 +42,14 @@ class HomeController < ApplicationController
    
   
   def facebookGroup
+	checkBoxVal = session["user_check_box"]
+	graph = Koala::Facebook::GraphAPI.new(session["user_token"])
+	checkBoxVal.each do |i|
+		image_path="http://britishfamily.co.uk/wp-content/uploads/2013/02/toys.jpg"
+		message = 'Hello it is just testing'
+		graph.put_picture( image_path, {message: message}, i)
 	
+	end
 	render json: session["user_check_box"]
 	
 	
