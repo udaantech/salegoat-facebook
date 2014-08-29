@@ -54,8 +54,8 @@ production:
 
 
   # Mode can be 'live' or 'sandbox'
-  mode: live
-
+  #mode: live
+  mode: sandbox
   # Credentials for Classic APIs
   username: jb-us-seller_api1.paypal.com
   password: WX4WTU3S8MY44S7F
