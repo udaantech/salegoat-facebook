@@ -28,7 +28,6 @@ function fillData() {
 	var product_desc =$("#product_desc").val();
 	var links =$("#link").val(); 
 	var linkTitle =$("#linkTitle").val();
-	var RegExp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
 
 	   $("input[type=checkbox]:checked").each(function() {
@@ -53,22 +52,7 @@ function fillData() {
 			$("#product_desc").focus();
 			return false;
 			
-		}	
-		else if(links=="") {
-			alert("Please give a link!");
-			$("#link").focus();
-			return false;
-			
-		} else if(!RegExp.test(links)){
-		alert("Please give a valid link!");
-		return false;
-
-		} else if($("#upload_file").val()=='') {
-			alert("Please Upload file!");
-			$("#upload_file").focus();
-			return false;
-			
-		} 
+		}
 
 		$(".custom_btn").attr("href","/orders?order%5Bamount%5D=20&amp;order%5Bdescription%5D=Post");
 		
@@ -85,6 +69,14 @@ function setOrder()
 	var product_desc =$("#product_desc").val();
 	var links =$("#link").val(); 
 	var linkTitle =$("#linkTitle").val();
+
+	var RegExp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+	if(!RegExp.test(links) &&  links!='')
+	{
+	links = 	"http://"+links;
+	}
+
+
 	$.ajax({
 			url:"putCheckBox",
 			data:{type:selected,productName:product_name,productDesc:product_desc,links:links,linkTitle:linkTitle},
@@ -206,7 +198,7 @@ $img = readImage( this );
 					  <button type="submit" class="btn btn-success" >Post</button> -->
 					  
 					  
-					  <a rel="nofollow" id="post_btn" onclick="return fillData()" data-method="post" class="btn  custom_btn" href="javascript:;">Post</a>
+					  <a rel="nofollow" id="post_btn" onclick="return fillData()" data-method="post" class="btn  custom_btn post_btn" href="javascript:;">Post</a>
 					</div>
 				  </div>
 				  </div>
@@ -221,7 +213,7 @@ $img = readImage( this );
 						<div class="col-sm-12">
 							<h4>Select Groups to Post to:</h4>
 							<div class="pull-right right_section">
-								<a href="javascript:void(0)" id="selectall">select all -</a>
+								<a href="javascript:void(0)" id="selectall">Select all -</a>
 								<a href="javascript:void(0)" id="deselectall">Deselect all</a>
 								<br/>
 								

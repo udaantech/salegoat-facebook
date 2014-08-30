@@ -349,3 +349,16 @@ html, body {
   /* .push must be the same height as footer */
   height: 142px; 
 }
+
+.post_btn{padding:5px 40px; font-size:20px;}
+ 
+.gdiv input[type="checkbox"] + label:before {
+  color: #000000;
+  content: "✓ ";
+}
+
+
+ .gdiv input[type="checkbox"]:checked + label:before {
+  color: #ff0000;
+  content: "✓ ";
+}

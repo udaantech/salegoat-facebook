@@ -13,6 +13,7 @@ FacebookAuthExample::Application.routes.draw do
 		  get "create"
 		  get "putCheckBox"
 		  get "privacy"
+		   get "myorder"
 		  post "putImage"
 	   end
 	  end

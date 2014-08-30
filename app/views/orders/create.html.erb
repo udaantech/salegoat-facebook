@@ -9,15 +9,7 @@
       <input name="authenticity_token" type="hidden" value="mTr5lv7wDUOAkjvrROLCFEZonbb5/0tWwCP3YdDMslY=" />
       </div>
         
-        <div class='form-group'>
-          <label class="string optional control-label col-md-4" for="order_amount">Amount</label>
-          <div class='controls col-md-8'>
-            <label class='checkbox'>
-              $0.99
-            </label>
-            <input id="order_amount" name="order[amount]" type="hidden" value="0.99" />
-          </div>
-        </div>
+
         
         <div class='form-group'>
           <label class="string optional control-label  col-md-4" for="order_description">Product Name</label>
@@ -41,9 +33,19 @@
           </div>
         </div>
         
-        
+        <div class='form-group'>
+          <label class="string optional control-label col-md-4" for="order_amount">Amount</label>
+          <div class='controls col-md-8'>
+            <label class='checkbox'>
+              $0.99
+            </label>
+            <input id="order_amount" name="order[amount]" type="hidden" value="0.99" />
+          </div>
+        </div> 
+
+
         <div class='form-actions'>
-          <input class="btn btn btn-primary" name="commit" type="submit" value="Place Order" />
+        <input class="btn btn btn-primary" name="commit" type="button" value="Back" onClick="history.back();" />  <input class="btn btn btn-primary" name="commit" type="submit" value="Place Order" />
         </div>
       </form>
       </div>

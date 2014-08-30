@@ -53,7 +53,7 @@ class HomeController < ApplicationController
 	checkBoxVal = session["user_check_box"]
 	graph = Koala::Facebook::GraphAPI.new(session["user_token"])
 	checkBoxVal.each do |i|
-		image_path="http://facebookeasylister.com/5_facebook_post.png	"
+		image_path="http://mintywhite.com/wp-content/uploads/2012/10/fond-ecran-wallpaper-image-arriere-plan-hd-29-HD.jpg"
 		message = "#{session[:links]}
 				  #{session[:productName]}
 				  #{session[:productDesc]}"
@@ -61,13 +61,25 @@ class HomeController < ApplicationController
 		graph.put_picture( image_path, {message: message}, i)
 	
 	end
-	render json: session["user_check_box"]
+	render text: session["user_check_box"]
 	
 	
   end
   
   def privacy
   
+  end
+
+   def myorder
+  
+   if session["user_id"]
+		current_user= User.find(session["user_tbl_id"])
+		@orders = current_user.orders.all( :limit => 100, :order => "id DESC" )
+
+	else
+		#redirect_to root_path
+	end
+	
   end
   
   
