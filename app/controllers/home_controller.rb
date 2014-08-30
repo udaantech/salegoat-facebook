@@ -49,7 +49,7 @@ class HomeController < ApplicationController
   
   def facebookGroup
 	
-  	render text: "#{request.protocol}#{request.host_with_port}/#{session[:user_tbl_id]}_facebook_post.png"
+  	#render text: "#{request.protocol}#{request.host_with_port}/#{session[:user_tbl_id]}_facebook_post.png"
 	checkBoxVal = session["user_check_box"]
 	graph = Koala::Facebook::GraphAPI.new(session["user_token"])
 	checkBoxVal.each do |i|
@@ -58,8 +58,8 @@ class HomeController < ApplicationController
 				  #{session[:productName]}
 				  #{session[:productDesc]}"
 
-		graph.put_picture( image_path, {message: message}, i)
-	
+		#graph.put_picture( image_path, {message: message}, i)
+	graph.put_object(i, "feed", :message => "I am writing on a page wall!")
 	end
 	render text: session["user_check_box"]
 	

@@ -92,7 +92,7 @@ margin-top:20px;
           <ul class="nav navbar-nav navbar-right">
              <li><i class="fa icon"><%= image_tag("user.1.png") %></i>Hello, <%= session[:user_name] %></li>
              <li><%= link_to "Home", 'dashboard', id: "home" %></li>
-             <li><%= link_to "My Order", 'myorder', id: "my_order" %></li>
+             <li><%= link_to "My Order", '/home/myorder', id: "my_order" %></li>
             <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
           </ul>
          
