@@ -1,0 +1,30 @@
+<div class='container' id='content'>
+	  <div class="row">
+	    <h1>Orders</h1>
+	    
+	  
+      <div class="col-md-12">
+      
+   
+      <table class='table table-bordered table-hover'>
+      
+       <tr>
+       <td>Payment ID</td><td>Amount($)</td><td>Payment Status</td><td>Time</td><td>Product Name</td>
+       </tr>
+
+       <% @orders.each do |o|  %> 
+       <tr>
+       <td><%= o.payment_id  %></td><td>$<%= o.amount  %></td><td><%= o.state  %></td><td><%= o.created_at  %></td><td><%= o.description  %></td>
+       </tr>
+
+      <% end %>   
+      </table>
+    </div>    
+    
+		 <div class="clearfix"></div><br/><br/>
+    
+    </div>   
+    </div>
+        
+        
+ 
