@@ -1,7 +1,7 @@
  #[code lang="javascript"]
 # config/facebook.yml
 
-app_id:428057170545953
-secret_key:50571ec31ec1a2306558a65b27220649
-callback_url:http://localhost:3000/
+app_id:452181538258114
+secret_key:bf105dbd1547dd4414c3b7ceda011cdb
+callback_url:http://facebookeasylister.com
 
