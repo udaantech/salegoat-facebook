@@ -10,8 +10,8 @@ class HomeController < ApplicationController
   	@order = Order.new
 
 	  if session["user_id"]
-		graph = Koala::Facebook::GraphAPI.new(session["user_token"])
-		@likes = graph.get_connections("me", "groups")
+		#graph = Koala::Facebook::GraphAPI.new(session["user_token"])
+		#@likes = graph.get_connections("me", "groups")
 	   else
 		redirect_to root_path
 	   end
@@ -59,7 +59,8 @@ class HomeController < ApplicationController
 				  #{session[:productDesc]}"
 
 		#graph.put_picture( image_path, {message: message}, i)
-	graph.put_object(i, "feed", :message => "I am writing on a page wall!")
+	graph.get_object("me", {}, api_version: "v2.0")
+	#graph.put_object(i, "feed", :message => "I am writing on a page wall!")
 	end
 	render text: session["user_check_box"]
 	
