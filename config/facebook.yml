@@ -3,5 +3,5 @@
 
 app_id:452181538258114
 secret_key:bf105dbd1547dd4414c3b7ceda011cdb
-callback_url:http://facebookeasylister.com
+callback_url:http://localhost:3000/
 

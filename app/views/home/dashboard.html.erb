@@ -69,6 +69,7 @@ function setOrder()
 	var product_desc =$("#product_desc").val();
 	var links =$("#link").val(); 
 	var linkTitle =$("#linkTitle").val();
+	var uploadFile=$("#upload_file").val();
 
 	var RegExp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 	if(!RegExp.test(links) &&  links!='')
@@ -79,7 +80,7 @@ function setOrder()
 
 	$.ajax({
 			url:"putCheckBox",
-			data:{type:selected,productName:product_name,productDesc:product_desc,links:links,linkTitle:linkTitle},
+			data:{type:selected,productName:product_name,productDesc:product_desc,links:links,linkTitle:linkTitle,uploadFile:uploadFile},
 			type:'GET',
 			success:function(result){
 				}
@@ -108,6 +109,7 @@ $.ajax({
 	data:{data: $data[1],current_user: $("#current_user").val()},
 	type:'POST',
 	success:function(result){
+	setOrder();	
 	$("#img_loading").hide();	
 	$("#post_btn").attr('disabled',false);
 		}

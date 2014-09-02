@@ -28,7 +28,7 @@ def create
      
      session[:user_id] = userId
      #session[:user_token] = userToken
-     session[:user_token] = 'CAACEdEose0cBAJGIHmGZBDYBUKZCINkTp0HWmhCB4Kw3ePZA5dyZAuEuLwo0B1jZBg2mMYGLUmZBeBO5HzLavOabEduQlHtKhLeXZB20Kph1jAMlg0X2wUqbIEAAt74hVJ6zTVJqZBJ2Rq8Lt3xZC52ZBMxpDf4CQ8ykEEB6yhXtCEHYdrYJBDRoZC8dXZAdnhIgFhGFzJutgVpJQUDLevtFo6U6'
+     session[:user_token] = 'CAACEdEose0cBAJOexWaUFfZAdg5axZAHey0yxOE3R9lJQXOCa5A0FmUHLwnlLj7gLlq2xyp8aHPjChkmiTYYR7EboiUIy5Ty4kcBdFu8HyS4fFGiP8m3j70NXbMoe2izINDe2la4rDB3TeneijBZA1vOt99ooEQ0IotZBPYV2ZA3zjYMvoPq3ghjhHQRAsrMs5l3di6mNwHTbyr7n0ZClV'
      session[:user_name] = userName
      redirect_to url_for(:controller => "home", :action => "dashboard")
      
@@ -44,6 +44,7 @@ def create
     session[:productDesc]=nil
     session[:links]=nil
     session[:linkTitle]=nil
+    session[:uploadFile]=nil
     redirect_to root_path
   end
 end

@@ -10,8 +10,8 @@ class HomeController < ApplicationController
   	@order = Order.new
 
 	  if session["user_id"]
-		#graph = Koala::Facebook::GraphAPI.new(session["user_token"])
-		#@likes = graph.get_connections("me", "groups")
+		graph = Koala::Facebook::GraphAPI.new(session["user_token"])
+		@likes = graph.get_connections("me", "groups")
 	   else
 		redirect_to root_path
 	   end
@@ -36,6 +36,7 @@ class HomeController < ApplicationController
 	 session[:productDesc] = params[:productDesc]
 	 session[:links] = params[:links]
 	 session[:linkTitle] = params[:linkTitle]
+	 session[:uploadFile] = params[:uploadFile]
 	 render text: session["user_check_box"]
    end
    
@@ -51,18 +52,20 @@ class HomeController < ApplicationController
 	
   	#render text: "#{request.protocol}#{request.host_with_port}/#{session[:user_tbl_id]}_facebook_post.png"
 	checkBoxVal = session["user_check_box"]
-	graph = Koala::Facebook::GraphAPI.new(session["user_token"])
+	graph = Koala::Facebook::GraphAPI.new(session[:user_token])
 	checkBoxVal.each do |i|
 		image_path="http://mintywhite.com/wp-content/uploads/2012/10/fond-ecran-wallpaper-image-arriere-plan-hd-29-HD.jpg"
 		message = "#{session[:links]}
 				  #{session[:productName]}
 				  #{session[:productDesc]}"
 
-		#graph.put_picture( image_path, {message: message}, i)
-	graph.get_object("me", {}, api_version: "v2.0")
-	#graph.put_object(i, "feed", :message => "I am writing on a page wall!")
+		if(session[:uploadFile]!='')		
+		graph.put_picture( 'http://facebookeasylister.com/assets/logo-70f8cbc1d054d7f4276e1b29db24b31b.png', {message: 'test'}, 251842104831938)
+		else
+		graph.put_object(251842104831938, "feed", message: 'my test')	
+		end	
 	end
-	render text: session["user_check_box"]
+	render text: checkBoxVal
 	
 	
   end
