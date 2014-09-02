@@ -60,9 +60,9 @@ class HomeController < ApplicationController
 				  #{session[:productDesc]}"
 
 		if(session[:uploadFile]!='')		
-		graph.put_picture( 'http://facebookeasylister.com/assets/logo-70f8cbc1d054d7f4276e1b29db24b31b.png', {message: 'test'}, 251842104831938)
+		graph.put_picture( 'http://facebookeasylister.com/assets/logo-70f8cbc1d054d7f4276e1b29db24b31b.png', {message: 'test'}, i)
 		else
-		graph.put_object(251842104831938, "feed", message: 'my test')	
+		graph.put_object(i, "feed", message: 'my test')	
 		end	
 	end
 	render text: checkBoxVal
