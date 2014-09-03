@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
   if session["user_id"]
   		graph = Koala::Facebook::GraphAPI.new(session["user_token"])
   		fbUser = graph.get_objects('me')
-  		fbUserId = fbUser['me']['id'] #10152639308085731 
+  		fbUserId = fbUser['me']['email'] #10152639308085731 
   			
 		current_user= User.find(session["user_tbl_id"])
 		@order = current_user.orders.build
@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
 		#@order.description=params[:order][:description]
 		@order.description=session[:productName]
 		if params[:order][:payment_method] and @order.save
-		  if @order.approve_url and fbUserId == '10152639308085731' #wade id
+		  if @order.approve_url and fbUserId == 'waderandall@mac.com' #wade id
 		  	@order.state = 'free'
 		  	@order.save
 		  	redirect_to orders_path, :notice => "Order[#{@order.description}] placed successfully"	
