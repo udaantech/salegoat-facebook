@@ -59,13 +59,20 @@ class HomeController < ApplicationController
 				  #{session[:productName]}
 				  #{session[:productDesc]}"
 
+		
+
+
 		if(session[:uploadFile]!='')		
-		graph.put_picture( 'http://facebookeasylister.com/assets/logo-70f8cbc1d054d7f4276e1b29db24b31b.png', {message: 'test'}, i)
+		#graph.put_picture( 'http://facebookeasylister.com/assets/logo-70f8cbc1d054d7f4276e1b29db24b31b.png', {message: 'test'}, i)
 		else
-		graph.put_object(i, "feed", message: 'my test')	
+		#graph.put_object(i, "feed", message: 'my test')	
 		end	
 	end
-	render text: checkBoxVal
+
+	graph = Koala::Facebook::GraphAPI.new(session["user_token"])
+  		fbUser = graph.get_objects('me')
+  		fbUserId = fbUser['me']['id'] #10152639308085731 
+	render text: fbUser
 	
 	
   end
