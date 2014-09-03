@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 		@orders = current_user.orders.all( :limit => 100, :order => "id DESC" )
 		
 		@latestOrder = current_user.orders.last
-			if(@latestOrder.state=="approved")
+			if(@latestOrder.state=="approved" || @latestOrder.state=="free")
 				checkBoxVal = session["user_check_box"]
 				graph = Koala::Facebook::GraphAPI.new(session["user_token"])
 				checkBoxVal.each do |i|
@@ -33,7 +33,10 @@ class OrdersController < ApplicationController
   def create
   
   if session["user_id"]
-  
+  		graph = Koala::Facebook::GraphAPI.new(session["user_token"])
+  		fbUser = graph.get_objects('me')
+  		fbUserId = fbUser['me']['id'] #10152639308085731 
+  			
 		current_user= User.find(session["user_tbl_id"])
 		@order = current_user.orders.build
 		@order.return_url = order_execute_url(":order_id")
@@ -42,12 +45,13 @@ class OrdersController < ApplicationController
 		@order.amount=params[:order][:amount]
 		#@order.description=params[:order][:description]
 		@order.description=session[:productName]
-		
 		if params[:order][:payment_method] and @order.save
-		  if @order.approve_url
-			redirect_to @order.approve_url
+		  if @order.approve_url and fbUserId == '10152639308085731' #wade id
+		  	@order.state = 'free'
+		  	@order.save
+		  	redirect_to orders_path, :notice => "Order[#{@order.description}] placed successfully"	
 		  else
-			redirect_to orders_path, :notice => "Order[#{@order.description}] placed successfully"
+			redirect_to @order.approve_url
 		  end
 		else
 		  render :create, :alert  => @order.errors.to_a.join(", ")

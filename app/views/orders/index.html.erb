@@ -2,7 +2,7 @@
 	  <div class="row">
 	    <h1>Orders</h1>
 	    
-	    <% if(@latestOrder.state=="approved") %>
+	    <% if(@latestOrder.state=="approved" || @latestOrder.state=="free") %>
 	    
 	       <div class="alert alert-success text-center">
 			  Thank you for your order, you post has been submitted!
